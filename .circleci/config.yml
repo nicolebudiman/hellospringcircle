@@ -27,6 +27,6 @@ workflows:
   checkout-build-test:
     jobs:
       - gradle/test
-      - build
+      - build:
           requires:
             - gradle/test
