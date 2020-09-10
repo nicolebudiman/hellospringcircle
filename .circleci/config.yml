@@ -23,13 +23,6 @@ jobs:
       - persist_to_workspace:
           root: build/libs
           paths: hellospringcircle-1.0.jar
-  build_and_push_image:
-    steps:
-      - attach_workspace:
-          at: ~/build/libs
-      - aws-ecr/build-and-push-image:
-          repo: "hellospringcircle"
-          tag: "latest"
 
 workflows:
   checkout-build-test-deploy:
@@ -38,6 +31,9 @@ workflows:
       - build:
           requires:
             - gradle/test
-      - build_and_push_image:
+      - aws-ecr/build-and-push-image:
+          repo: "hellospringcircle"
+          tag: "latest"
+          attach-workspace: true
           requires:
             - build
