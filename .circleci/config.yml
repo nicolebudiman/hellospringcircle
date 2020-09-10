@@ -35,6 +35,6 @@ workflows:
           repo: "hellospringcircle"
           tag: "latest"
           attach-workspace: true
-          workspace-root: ~/
+          workspace-root: build/libs
           requires:
             - build
