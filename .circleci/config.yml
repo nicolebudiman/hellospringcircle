@@ -43,7 +43,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           name: deploy-development
           requires:
-            - aws-ecr/build-and-push-image
+            - push-image-to-ecr
           family: "hsc-task-definition"
           cluster-name: "hsc-cluster"
           service-name: "hsc-service"
