@@ -47,4 +47,4 @@ workflows:
           family: "hsc-task-definition"
           cluster-name: "hsc-cluster"
           service-name: "hsc-service"
-          container-image-name-updates: "hsc-container,tag=latest"
+          container-image-name-updates: "container=hellospringcircle,tag=latest"
