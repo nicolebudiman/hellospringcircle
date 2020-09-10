@@ -1,5 +1,6 @@
 orbs:
   gradle: circleci/gradle@2.2.0
+  aws-ecr: circleci/aws-ecr@6.12.2
 version: 2.1
 jobs:
   build:
@@ -24,9 +25,14 @@ jobs:
           destination: build/libs/
 
 workflows:
-  checkout-build-test:
+  checkout-build-test-deploy:
     jobs:
       - gradle/test
       - build:
           requires:
             - gradle/test
+      - aws-ecr/build-and-push-image:
+          repo: "hellospringcircle"
+          tag: "latest"
+          requires:
+            - build
