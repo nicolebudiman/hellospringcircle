@@ -30,7 +30,6 @@ jobs:
       - aws-ecr/build-and-push-image:
           repo: "hellospringcircle"
           tag: "latest"
-          requires:
 
 workflows:
   checkout-build-test-deploy:
