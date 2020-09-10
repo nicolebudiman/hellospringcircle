@@ -21,8 +21,8 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run: gradle build
       - persist_to_workspace:
-          root: ~/
-          paths: build/libs/hellospringcircle-1.0.jar
+          root: build/libs
+          paths: hellospringcircle-1.0.jar
 
 workflows:
   checkout-build-test-deploy:
